@@ -12,12 +12,20 @@ client = genai.Client(api_key=chave,
                       http_options={'api_version':'v1'})
 modelo = "gemini-2.5-flash"
 
+
+
+# Descobre onde o app.py está e já aponta para as imagens
+pasta_atual = os.path.dirname(__file__)
+img_frente = os.path.join(pasta_atual, "frente.png")
+img_verso = os.path.join(pasta_atual, "verso.png")
+
+
 #organizando a pagina
 col_esq, col_meio, col_dir = st.columns([1, 2, 1])
 
 with col_esq:
     # Foto da Frente
-    st.image("frente.png", use_container_width=True)
+    st.image(img_frente, use_container_width=True)
 
 with col_meio:
     # Título centralizado verticalmente e horizontalmente
@@ -27,7 +35,7 @@ with col_meio:
 
 with col_dir:
     # Foto do Verso
-    st.image("verso.png", use_container_width=True)
+    st.image(img_verso, use_container_width=True)
 
 st.divider()
 
