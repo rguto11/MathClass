@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from PIL import Image
 
 load_dotenv()
-chave = os.getenv("API_GEMINI")
+chave = st.secrets.get("API_GEMINI") or os.getenv("API_GEMINI")
 
 # chamando a chave e o modelo
 client = genai.Client(api_key=chave,
